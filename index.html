@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+<meta name="viewport" content="width=device-width, maximum-scale=1">
+<title>
+Tiki Movies - Watch movies online for FREE!!
+</title>
+<style>
+body {
+    font-family: "omnes-pro","Helvetica Neue",sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #ffffff;
+}
+a, a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+.movie-poster-grid {
+    display: inline-block;
+    list-style-type: none;
+    width: 830px;
+    overflow: hidden;
+}
+.movie-target {
+    display: inline-block;
+    list-style-type: none;
+    margin: 5px;
+    width: 192px;
+    overflow: hidden;
+}
+.movie-target img{
+	position:relative;
+	display:block;
+	width: 192px !important;
+	height: 284px !important;
+}
+.demo-photo-caption {
+    position: relative;
+    top: 8px;
+    float: left;
+    overflow: hidden;
+    width: 192px;
+    height: 55px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 17px;
+}
+</style>
+
+</head>
+<body  style="width: 830px; margin: auto;" bgcolor="#444444" text="#fff" link="#fff" vlink="#555">
+<center>
+<h1>Tiki Movies</h1>
+<h3>Watch movies online for FREE</h3>
+
+<div style="clear: both; height: 10px; text-align: center;"></div>
+        
+<div class="movie-poster-grid" align="center">
+            
+   <script>
+
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.open("GET","https://dl.dropboxusercontent.com/s/b9idsf1iw8b9m7u/movies.xml",false);
+    xmlhttp.send();
+    xmlDoc = xmlhttp.responseXML; 
+
+    var x = xmlDoc.getElementsByTagName("source");
+
+    for (i = 0; i < x.length; i++) { 
+
+	document.write("<div class='movie-target'><a rel='nofollow' href='");
+	document.write(x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue);
+	document.write("' title='");
+	document.write(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
+	document.write("' target='_blank'><img src='' data-echo='");
+	document.write(x[i].getElementsByTagName("img")[0].childNodes[0].nodeValue);
+	document.write("' alt='");
+	document.write(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
+	document.write("' ><figcaption class='demo-photo-caption'>");
+ 	document.write(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
+	document.write("</figcaption></a></div>");
+    }
+    </script>
+		
+</div>
+        
+
+</center>
+
+<div style="clear: both; height: 10px; text-align: center;"></div>
+<center>
+Powered by <a href="http://tikimovies.com/" style="text-decoration: none" />tikimovies.com</a>
+</center>
+<div style="clear: both; height: 30px; text-align: center;"></div>
+
+<!-- ads -->
+<script type='text/javascript' src='//eclkmpsa.com/adServe/banners?tid=10127_136274_0&tagid=2'></script>
+<script type='text/javascript' src='//eclkmpbn.com/adServe/banners?tid=10127_136274_1&type=footer&size=728x90'></script>
+
+<!-- lazy load js -->
+<script src="echo.js"></script>
+<script>
+echo.init({
+ offset: 100,
+ throttle: 250,
+ unload: false,
+ callback: function (element, op) {
+   console.log(element, 'has been', op + 'ed')
+ }
+});
+</script>
+
+</body>
+</html>
+
